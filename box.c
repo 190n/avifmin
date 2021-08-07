@@ -4,7 +4,7 @@
 
 void pb_delete(ParsedBox **pb) {
     switch ((*pb)->type) {
-    case FTYP:
+    case FTYP: {
         // ParsedFTYPBox *b = AS_FTYP(*pb);
         ParsedFTYPBox *b = &((*pb)->as.ftyp);
         free(b->major_brand);
@@ -14,6 +14,7 @@ void pb_delete(ParsedBox **pb) {
         }
         free(b->compatible_brands);
         break;
+    }
     default: break;
     }
 
