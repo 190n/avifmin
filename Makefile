@@ -1,7 +1,7 @@
 CC = clang
 CFLAGS = -Wall -Wextra -Werror -Wpedantic -g
 LDFLAGS=
-OBJS=avifmin.o parser.o
+OBJS=avifmin.o parser.o box.o
 
 all: avifmin
 
