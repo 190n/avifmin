@@ -6,6 +6,7 @@
 typedef struct Box {
     uint32_t size;
     uint32_t type;
+    unsigned char *data;
 } Box;
 
 #endif
