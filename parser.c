@@ -1,6 +1,7 @@
 #include "parser.h"
 
 #include <malloc.h>
+#include <string.h>
 
 struct Parser {
     FILE *fd;
@@ -25,4 +26,19 @@ void parser_delete(Parser **p) {
 
 bool parser_done(Parser *p) {
     return p->done;
+}
+
+ParsedBox *parse_box(Parser *p) {
+    char type[5];
+    type[4] = '\0';
+    // skip size for now
+    fseek(p->fd, 4, SEEK_SET);
+    // read the type
+    fread(type, 4, 1, p->fd);
+
+    if (strcmp(type, "ftyp") == 0) {
+        printf("ftyp box\n");
+    }
+
+    return NULL;
 }

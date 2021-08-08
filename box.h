@@ -3,13 +3,13 @@
 
 #include <stdint.h>
 
-typedef struct Box {
+typedef struct {
     uint32_t size;
     uint32_t type;
-    unsigned char *data;
+    char *data;
 } Box;
 
-typedef struct FTYPBox {
+typedef struct {
     Box box;
     uint32_t major_brand;
     uint32_t minor_version;
@@ -17,18 +17,18 @@ typedef struct FTYPBox {
     uint32_t *compatible_brands;
 } FTYPBox;
 
-typedef struct ParsedFTYPBox {
-    unsigned char *major_brand;
-    unsigned char *minor_version;
+typedef struct {
+    char *major_brand;
+    char *minor_version;
     uint32_t n_compatible_brands;
-    unsigned char **compatible_brands;
+    char **compatible_brands;
 } ParsedFTYPBox;
 
-typedef enum ParsedBoxType {
+typedef enum {
     FTYP,
 } ParsedBoxType;
 
-typedef struct ParsedBox {
+typedef struct {
     ParsedBoxType type;
     union {
         ParsedFTYPBox ftyp;

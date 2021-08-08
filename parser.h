@@ -1,6 +1,8 @@
 #ifndef __PARSER_H__
 #define __PARSER_H__
 
+#include "box.h"
+
 #include <stdbool.h>
 #include <stdio.h>
 
@@ -28,5 +30,12 @@ void parser_delete(Parser **p);
 // p: pointer to the Parser
 //
 bool parser_done(Parser *p);
+
+//
+// Parse one box from the file. Returns NULL for any error.
+//
+// p: pointer to the Parser
+//
+ParsedBox *parse_box(Parser *p);
 
 #endif
